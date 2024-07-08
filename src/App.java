@@ -14,15 +14,24 @@ public class App {
         runEmpleadoExample();
 
         // Ejecuta los ejercicios de sumatoria y anagramas
-        runEjerccios();
+       // runEjerccios();
     }
 
     private static void runEmpleadoExample() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        EmpleadoContoller empleadoContoller= new EmpleadoContoller();
+        empleadoContoller.addEmpleado(new Empleado(1, "Vivi", "Develope"));
+        empleadoContoller.addEmpleado(new Empleado(5, "Maria", "Analyst"));
+        empleadoContoller.addEmpleado(new Empleado(3, "Esteban", "Develope"));
+        empleadoContoller.addEmpleado(new Empleado(400, "Angel", "Tester"));
+
+        empleadoContoller.imprimirEmpledos();
+       // throw new UnsupportedOperationException("Not implemented yet");
     }
 
     private static void runMapExamlpe() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        new Mapa();
+
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     private static void runEjerccios() {
