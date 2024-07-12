@@ -2,7 +2,12 @@ package controllers;
 
 import java.util.HashMap;
 
+import javax.sound.midi.Sequencer.SyncMode;
+
+import models.Empleado;
+
 public class Ejercicios {
+
 
     /**
      * Determina si dos cadenas de caracteres son anagramas.
@@ -28,10 +33,24 @@ public class Ejercicios {
      * frecuencia.
      */
     public static boolean areAnagrams(String str1, String str2) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (str1.length() != str2.length()) return false;
 
+        HashMap<Character, Integer> conteoCaracteresMap1 = new HashMap<>();
+        HashMap<Character, Integer> conteoCaracteresMap2 = new HashMap<>();
+
+        for (char character : str1.toCharArray()) {
+            conteoCaracteresMap1.put(character, conteoCaracteresMap1.getOrDefault(character, 0) + 1);
+        }
+
+        for (char character : str2.toCharArray()) {
+            conteoCaracteresMap2.put(character, conteoCaracteresMap2.getOrDefault(character, 0) + 1);
+        }
+
+        return conteoCaracteresMap1.equals(conteoCaracteresMap2);
     }
 
+
+    
     /*
      * Dado un array de números enteros y un objetivo, retorna los índices de dos
      * números para los que la suma de ambos sea igual al objetivo.
@@ -48,6 +67,16 @@ public class Ejercicios {
      * Output: null
      */
     public int[] sumatoriaDeDos(int[] nums, int objetivo) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        HashMap<Integer, Integer> numMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int complemento = objetivo - nums[i];
+            if (numMap.containsKey(complemento)) {
+                return new int[]{numMap.get(complemento), i};
+            }
+            numMap.put(nums[i], i);
+        }
+
+        return null; 
     }
 }
